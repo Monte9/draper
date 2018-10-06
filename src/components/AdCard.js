@@ -14,10 +14,12 @@ export const LIGHT_GRAY = '#eeeeee';
 
 export default class AdCard extends Component {
   render() {
+    const { ad } = this.props;
+
     return (
       <View style={styles.cardContainer}>
         <Image
-          source={{ uri: 'https://i.imgur.com/32GKypP.png' }}
+          source={{ uri: ad.src }}
           style={styles.adImage}
           resizeMode='contain'
         />

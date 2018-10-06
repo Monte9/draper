@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import RootStack from './App';
 
-AppRegistry.registerComponent('draper', () => App);
+AppRegistry.registerComponent('draper', () => RootStack);

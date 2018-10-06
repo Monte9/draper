@@ -1,39 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
+  Platform, StyleSheet, Text, View, FlatList, ImageBackground
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { createStackNavigator } from 'react-navigation';
 
-type Props = {};
-export default class App extends Component<Props> {
+import AdCard from './src/components/AdCard'
+
+const BACKGROUND_IMAGE = require('./src/images/background.png')
+
+const ADS = ['ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad']
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'draper',
+    headerStyle: {
+      backgroundColor: '#4700d9',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontSize: 22
+    }
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <ImageBackground
+        style={{ width: '100%', height: '100%' }}
+        resizeMode="center"
+        source={BACKGROUND_IMAGE}
+      >
+        <FlatList
+          data={ADS}
+          renderItem={({item}) => <AdCard ad={item} />}
+          contentContainerStyle={styles.flatListContainer}
+        />
+      </ImageBackground>
     );
   }
 }
@@ -41,18 +43,17 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  flatListContainer: {
+    alignItems: 'center'
+  }
+});
+
+const RootStack = createStackNavigator({
+  Home: {
+    screen: HomeScreen
   },
 });
+
+export default RootStack;

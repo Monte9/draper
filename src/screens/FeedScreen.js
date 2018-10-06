@@ -77,28 +77,49 @@ export default class FeedScreen extends React.Component {
     })
   }
 
-  _postScores = (ad,new_score) =>{
+  // _debounce(func, wait, immediate) {
+  //   var timeout;
+  //   return function() {
+  //     var context = this, args = arguments;
+  //     var later = function() {
+  //       timeout = null;
+  //       if (!immediate) func.apply(context, args);
+  //     };
+  //     var callNow = immediate && !timeout;
+  //     clearTimeout(timeout);
+  //     timeout = setTimeout(later, wait);
+  //     if (callNow) func.apply(context, args);
+  //   };
+  // };
+
+
+  
+
+  _postScores = (ad,score) =>{
     console.log(ad)
-    fetch('https://morning-retreat-54047.herokuapp.com/api/adscores/rate_ad', {
+    // _debounce(function() {
+      fetch('https://morning-retreat-54047.herokuapp.com/api/adscores/rate_ad', {
         method: 'POST',
         headers: { 
               'Accept': 'application/json',
               'Content-Type': 'application/json' 
               },
-        body: JSON.stringify({id: ad._id, src: ad.src, company:ad.company, score: new_score})
+        body: JSON.stringify({id: ad._id, src: ad.src, company:ad.company, score: score})
     })
     .then((response) => JSON.stringify(response.json())) 
     // .then((responseData) => { console.log("response: " + responseData); })
     .catch((err) => { console.log(err); });
+
+      // }, 5000);
+    
   }
 
-  _increaseScore = (ad) => {
+  _increaseScore = (ad, value) => {
     const new_score = this.state.score + 1
-
     this.setState({ score: new_score }, () => {
       this.props.navigation.setParams({ score: this.state.score })
     });
-    this._postScores(ad,new_score);
+    this._postScores(ad,value);
   };
 
   _goToProfile = () => {

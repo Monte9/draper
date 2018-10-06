@@ -53,7 +53,7 @@ export default class EmojiFeedback extends Component {
 
     Animated.spring(this._pan, { toValue, friction: 10 }).start();
 
-    onPress(ad)
+    onPress(ad,(toValue/DISTANCE))
   }
 
   render() {

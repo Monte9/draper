@@ -14,7 +14,7 @@ export const LIGHT_GRAY = '#eeeeee';
 
 export default class AdCard extends Component {
   render() {
-    const { ad } = this.props;
+    const { ad, increaseScore } = this.props;
 
     return (
       <View style={styles.cardContainer}>
@@ -24,7 +24,7 @@ export default class AdCard extends Component {
           resizeMode='contain'
         />
         <View style={styles.scoreContainer}>
-          <EmojiFeedback />
+          <EmojiFeedback onPress={increaseScore} />
         </View>
       </View>
     );

@@ -1,21 +1,27 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 import LoadingScreen from './src/screens/LoadingScreen';
-import FeedScreen from './src/screens/FeedScreen';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 
-const AppStack = createStackNavigator({ Feed: FeedScreen });
+import FeedScreen from './src/screens/FeedScreen';
+import ProfileScreen from './src/screens/ProfileScreen'
+
 const OnboardingStack = createStackNavigator({
   Onboarding: OnboardingScreen
 }, {
   headerMode: 'none'
 });
 
+const AppStack = createStackNavigator({
+  Feed: FeedScreen,
+  Profile: ProfileScreen
+});
+
 const RootNavigator = createSwitchNavigator(
   {
     Loading: LoadingScreen,
-    App: AppStack,
-    Onboarding: OnboardingStack
+    Onboarding: OnboardingStack,
+    App: AppStack
   },
   {
     initialRouteName: 'Loading'

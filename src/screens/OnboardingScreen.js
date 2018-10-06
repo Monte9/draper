@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, AsyncStorage } from 'react-native';
 
 import Onboarding from 'react-native-onboarding-swiper';
 
@@ -8,6 +8,12 @@ const PAGE_2_IMAGE = require('../images/pointing.png');
 const PAGE_3_IMAGE = require('../images/clap.png');
 
 export default class OnboardingScreen extends React.Component {
+  _doneAsync = async () => {
+    await AsyncStorage.setItem('userToken', '37j1k72j1');
+
+    this.props.navigation.navigate('App');
+  };
+
   render() {
     return (
       <Onboarding
@@ -31,7 +37,7 @@ export default class OnboardingScreen extends React.Component {
             subtitle: 'Redeem your draper points for cash prizes, gift cards and more...',
           },
         ]}
-        onDone={() => this.props.navigation.navigate('App')}
+        onDone={this._doneAsync}
       />
     );
   }

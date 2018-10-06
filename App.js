@@ -34,6 +34,7 @@ class HomeScreen extends React.Component {
           data={ADS}
           renderItem={({item}) => <AdCard ad={item} />}
           contentContainerStyle={styles.flatListContainer}
+          keyExtractor={(item, index) => `ad-${index}`}
         />
       </ImageBackground>
     );

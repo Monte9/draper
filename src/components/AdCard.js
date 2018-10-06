@@ -3,6 +3,8 @@ import {
   Platform, StyleSheet, Text, View, Dimensions, Image
 } from 'react-native';
 
+import EmojiFeedback from './EmojiFeedback'
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
@@ -20,7 +22,7 @@ export default class AdCard extends Component {
           resizeMode='contain'
         />
         <View style={styles.scoreContainer}>
-          <Text>Hello</Text>
+          <EmojiFeedback />
         </View>
       </View>
     );
@@ -49,8 +51,9 @@ const styles = StyleSheet.create({
   scoreContainer: {
     flex: 1,
     width: '100%',
-    height: 100,
-    marginTop: 10,
-    backgroundColor: 'red'
+    height: 120,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: -10
   }
 });

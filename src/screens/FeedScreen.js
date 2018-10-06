@@ -77,12 +77,28 @@ export default class FeedScreen extends React.Component {
     })
   }
 
+  _postScores = (ad,new_score) =>{
+    console.log(ad)
+    fetch('https://morning-retreat-54047.herokuapp.com/api/adscores/rate_ad', {
+        method: 'POST',
+        headers: { 
+              'Accept': 'application/json',
+              'Content-Type': 'application/json' 
+              },
+        body: JSON.stringify({id: ad._id, src: ad.src, company:ad.company, score: new_score})
+    })
+    .then((response) => JSON.stringify(response.json())) 
+    // .then((responseData) => { console.log("response: " + responseData); })
+    .catch((err) => { console.log(err); });
+  }
+
   _increaseScore = (ad) => {
     const new_score = this.state.score + 1
 
     this.setState({ score: new_score }, () => {
       this.props.navigation.setParams({ score: this.state.score })
     });
+    this._postScores(ad,new_score);
   };
 
   _goToProfile = () => {

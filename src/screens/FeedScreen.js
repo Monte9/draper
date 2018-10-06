@@ -12,6 +12,7 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 import AdCard from '../components/AdCard'
 
 const BACKGROUND_IMAGE = require('../images/background.png')
+export const LIGHT_GRAY = '#eeeeee';
 
 const ADS = ['ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad', 'ad']
 
@@ -68,7 +69,7 @@ export default class FeedScreen extends React.Component {
 
     return (
       <ImageBackground
-        style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}
+        style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: LIGHT_GRAY }}
         resizeMode='contain'
         source={BACKGROUND_IMAGE}
       >
@@ -79,6 +80,7 @@ export default class FeedScreen extends React.Component {
             renderItem={({item}) => <AdCard ad={item} />}
             contentContainerStyle={styles.flatListContainer}
             keyExtractor={(item, index) => `ad-${index}`}
+            showsVerticalScrollIndicator={false}
           />
         }
       </ImageBackground>

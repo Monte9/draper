@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: DEVICE_WIDTH - 40,
     padding: 20,
-    backgroundColor: LIGHT_GRAY,
+    backgroundColor: 'white',
     shadowColor: DARK_GRAY,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.5,
     shadowRadius: 3,
     elevation: 2,
     borderRadius: 5,

@@ -3,9 +3,10 @@ import { Text, View, Image, AsyncStorage } from 'react-native';
 
 import Onboarding from 'react-native-onboarding-swiper';
 
-const PAGE_1_IMAGE = require('../images/peace.png');
-const PAGE_2_IMAGE = require('../images/pointing.png');
+const PAGE_1_IMAGE = require('../images/pointing.png');
+const PAGE_2_IMAGE = require('../images/peace.png');
 const PAGE_3_IMAGE = require('../images/clap.png');
+const DRAPER_LOGO = require('../images/draper-logo1.png');
 
 export default class OnboardingScreen extends React.Component {
   _doneAsync = async () => {
@@ -18,6 +19,12 @@ export default class OnboardingScreen extends React.Component {
     return (
       <Onboarding
         pages={[
+          {
+            backgroundColor: '#4700d9',
+            title: 'Draper',
+            image: <Image source={DRAPER_LOGO} style={{ height: 120 }} resizeMode="contain" />,
+            subtitle: 'Give brands a piece of your mind. Earn cash while doing it.',
+          },
           {
             backgroundColor: '#4700d9',
             title: 'Rate Ads',
@@ -38,6 +45,7 @@ export default class OnboardingScreen extends React.Component {
           },
         ]}
         onDone={this._doneAsync}
+        onSkip={this._doneAsync}
       />
     );
   }

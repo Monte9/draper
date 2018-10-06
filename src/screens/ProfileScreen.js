@@ -41,7 +41,7 @@ export default class ProfileScreen extends Component {
         source={BACKGROUND_IMAGE}
       >
         <View style={styles.viewContainer}>
-          <TouchableOpacity style={styles.profileRow} onPress={() => console.log('Pressed')} activeOpacity={0.6}>
+          <TouchableOpacity style={styles.profileRow} onPress={() => this.props.navigation.navigate('Onboarding')} activeOpacity={0.6}>
             <Image source={HOW_IMAGE} style={styles.profileRowImage} />
             <Text style={styles.profileRowLabel}>How to Play</Text>
           </TouchableOpacity>

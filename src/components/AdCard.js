@@ -24,7 +24,7 @@ export default class AdCard extends Component {
           resizeMode='contain'
         />
         <View style={styles.scoreContainer}>
-          <EmojiFeedback onPress={increaseScore} />
+          <EmojiFeedback onPress={increaseScore} ad={ad} />
         </View>
       </View>
     );

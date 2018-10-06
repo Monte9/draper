@@ -27,11 +27,16 @@ export default class FeedScreen extends React.Component {
     const score = (navigation.state.params && navigation.state.params.score)
 
     return {
-      headerTitle: 'draper',
+      headerTitle: (
+        <View style={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ color: 'white', fontSize: 25, marginRight: 5 }}>draper</Text>
+          <Image source={DRAPER_LOGO} style={{ width: 22, height: 22 }} resizeMode="contain" />
+        </View>
+      ),
       headerLeft: (
         <View style={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-          <Image source={DOLLAR_IMAGE} style={{ width: 28, height: 28 }} resizeMode="contain" />
-          <Text style={{ color: 'white', fontSize: 25, marginLeft: 5 }}>{score && score.toString() || '0'}</Text>
+          <Image source={DOLLAR_IMAGE_2} style={{ width: 25, height: 25, marginRight: 15 }} resizeMode="contain" />
+          <Text style={{ color: 'white', fontSize: 25 }}>{score && score.toString() || '0'}</Text>
         </View>
       ),
       headerRight: (
@@ -72,7 +77,7 @@ export default class FeedScreen extends React.Component {
     })
   }
 
-  _increaseScore = () => {
+  _increaseScore = (ad) => {
     const new_score = this.state.score + 1
 
     this.setState({ score: new_score }, () => {

@@ -15,6 +15,8 @@ const OnboardingStack = createStackNavigator({
 const AppStack = createStackNavigator({
   Feed: FeedScreen,
   Profile: ProfileScreen
+}, {
+  initialRouteName: 'Feed'
 });
 
 const RootNavigator = createSwitchNavigator(

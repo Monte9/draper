@@ -35,7 +35,7 @@ export default class FeedScreen extends React.Component {
       ),
       headerLeft: (
         <View style={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-          <Image source={DOLLAR_IMAGE_2} style={{ width: 25, height: 25, marginRight: 15 }} resizeMode="contain" />
+          <Image source={DOLLAR_IMAGE_2} style={{ width: 25, height: 25, marginRight: 5 }} resizeMode="contain" />
           <Text style={{ color: 'white', fontSize: 25 }}>{score && score.toString() || '0'}</Text>
         </View>
       ),

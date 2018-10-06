@@ -5,11 +5,11 @@ import {
 } from 'react-native';
 
 const REACTIONS = [
-  { label: "Terrible", src: require('../images/worried.png'), bigSrc: require('../images/worried_big.png') },
-  { label: "Bad", src: require('../images/sad.png'), bigSrc: require('../images/sad_big.png') },
-  { label: "Okay", src: require('../images/ambitious.png'), bigSrc: require('../images/ambitious_big.png') },
-  { label: "Good", src: require('../images/smile.png'), bigSrc: require('../images/smile_big.png') },
-  { label: "Great", src: require('../images/surprised.png'), bigSrc: require('../images/surprised_big.png') }
+  { label: "Terrible", src: require('../images/terrible.png'), bigSrc: require('../images/terrible.png') },
+  { label: "Bad", src: require('../images/bad.png'), bigSrc: require('../images/bad.png') },
+  { label: "Okay", src: require('../images/okay.png'), bigSrc: require('../images/okay.png') },
+  { label: "Good", src: require('../images/good.png'), bigSrc: require('../images/good.png') },
+  { label: "Great", src: require('../images/great.png'), bigSrc: require('../images/great.png') }
 ];
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
